@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="recommendationsDiv">
+  {{ favorite_movies_message}}
+  <ul>
+    {% for favorite_movie in favorite_movies_list %}
+    <li>{{ favorite_movie }}</li>
+    {% endfor %}
+  </ul>
+  {{ recommendations_message }}
+  <br><br>
+  {% if (recommendations_list is defined) and (recommendations_posters is defined) %}
+  <img src="{{ recommendations_posters[0] }}" alt="{{ recommendations_list[0] }}" />
+  <p>{{ recommendations_list[0] }}</p><br><br>
+  <img src="{{ recommendations_posters[1] }}" alt="{{ recommendations_list[1] }}" />
+  <p>{{ recommendations_list[1] }}</p><br><br>
+  <img src="{{ recommendations_posters[2] }}" alt="{{ recommendations_list[2] }}" />
+  <p>{{ recommendations_list[2] }}</p><br><br>
+  <img src="{{ recommendations_posters[3] }}" alt="{{ recommendations_list[3] }}" />
+  <p>{{ recommendations_list[3] }}</p><br><br>
+  <img src="{{ recommendations_posters[4] }}" alt="{{ recommendations_list[4] }}" />
+  <p>{{ recommendations_list[4] }}</p><br><br>
+  <img src="{{ recommendations_posters[5] }}" alt="{{ recommendations_list[5] }}" />
+  <p>{{ recommendations_list[5] }}</p><br><br>
+  <img src="{{ recommendations_posters[6] }}" alt="{{ recommendations_list[6] }}" />
+  <p>{{ recommendations_list[6] }}</p><br><br>
+  <img src="{{ recommendations_posters[7] }}" alt="{{ recommendations_list[7] }}" />
+  <p>{{ recommendations_list[7] }}</p><br><br>
+  <img src="{{ recommendations_posters[8] }}" alt="{{ recommendations_list[8] }}" />
+  <p>{{ recommendations_list[8] }}</p><br><br>
+  <img src="{{ recommendations_posters[9] }}" alt="{{ recommendations_list[9] }}" />
+  <p>{{ recommendations_list[9] }}</p>
+  {% endif %}
+</div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The old library</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Auto Complete -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
+    <!-- External CSS -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <!--    <script type="text/javascript">-->
+    <!--        var films = {{suggestions|tojson}};-->
+    <!--        $(document).ready(function(){-->
+    <!--            $("#myModal").modal('show');-->
+    <!--        });-->
+
+    <style>
+        h2 {
+            font-family: Arial;
+            color: BLACK;
+            text-align: CENTER;
+        }
+        h1 {
+            font-family: Arial;
+            color:RED;
+            text-align: left;
+        }
+
+        form
+        {
+            text-align: center;
+            background-color: lightgrey;
+
+        }
+        imput
+        {
+            text-align: CENTER;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript">
+        function matchpass(){
+            var firstpassword=document.f1.password.value;
+            var secondpassword=document.f1.password2.value;
+
+            if(firstpassword==secondpassword){
+                return true;
+            }
+            else{
+                alert("password must be same!");
+                return false;
+            }
+        }
+        function validateemail()
+        {
+            var x=document.myform.email.value;
+            var atposition=x.indexOf("@");
+            var dotposition=x.lastIndexOf(".");
+            if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){
+                alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);
+                return false;
+            }
+        }
+    </script>
+    <H1>HOBBYTFLIX</H1>
+    <h2>inscription</h2>
+    <br>
+    <DIV>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+            <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+        </head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+    </div>
+</nav>
+<div class="col-md-3"></div>
+<div class="col-md-6 well">
+    <form method="POST" action="">
+        <div class="form-group">
+            <label>Username:</label>
+            <input type="text" name="username" class="form-control" required="required"/>
+            <?php include'validate.php'?>
+        </div>
+
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" name="password" class="form-control" required="required"/>
+        </div>
+        <div class="form-group">
+            <label>confirmPassword:</label>
+            <input type="password" name="password" class="form-control" required="required"/>
+        </div>
+
+        <div class="form-group">
+            <label>Firstname:</label>
+            <input type="text" name="firstname" class="form-control" required="required"/>
+        </div>
+
+        <div class="form-group">
+            <label>Lastname:</label>
+            <input type="text" name="lastname" class="form-control" required="required"/>
+        </div>
+        <div class="form-group">
+            <center><button class="btn btn-primary" name="save"><span class="glyphicon glyphicon-save"></span> Register</button></center>
+        </div>
+    </form>
+</div>
+</div>
+</body>
+</html>
+
+
