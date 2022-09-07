@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The old library</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Auto Complete -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
+    <!-- External CSS -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <!--    <script type="text/javascript">-->
+    <!--        var films = {{suggestions|tojson}};-->
+    <!--        $(document).ready(function(){-->
+    <!--            $("#myModal").modal('show');-->
+    <!--        });-->
+    </script>
+    <STYLE>
+        .menu {
+            display: flex;              /* Transformation en flexbox */
+            padding:0;                  /* Suppression des marges internes */
+            background-color: rgb(240, 105, 16);     /* Ajout de la couleur d'arrière-plan */
+        }
+        .menu li {
+            list-style-type: none ;       /* Suppression des puces */
+        }
+        .menu a {
+            display:block;                /* Transformation en block */
+            min-width: 120px;             /* Largeur minimale des liens */
+        }
+        .menu a {
+            display:block;                /* Transformation en block */
+            min-width: 120px;             /* Largeur minimale des liens */
+
+            margin: 0.5rem;               /* Marges externes (1 valeurs = 4 directions) */
+            padding: 0.4rem 0;            /* Marges internes (2 valeurs = haut/bas et gauche/droite)*/
+            text-align: center;           /* Centrage du texte */
+            background-color: rgb(230, 105, 9);    /* Couleur d'arrière-plan */
+            color: #fff;                  /* Couleur du texte */
+            text-decoration: none;        /* Suppression du soulignement */
+            border: 1px solid #fff;       /* Ajout d'une bordure */
+            border-radius: 4px;           /* Arrondis des bordures */
+        }
+        body {
+            margin: 0;
+            background-color: rgb(230, 105, 9);
+        }
+        .menu {
+            display: flex;              /* Transformation en flexbox */
+            padding:0;                  /* Suppression des marges internes */
+            background-color: rgb(230, 105, 9);     /* Ajout de la couleur d'arrière-plan */
+            justify-content: center     /* Alignements des liens dans le menu */
+        }
+        .menu a:hover {
+            background-color: rgb(230, 105, 9);
+            color: #ffe843;
+            border-color: #ffe843;
+        }
+        .menu a {
+            display:block;                /* Transformation en block */
+            min-width: 120px;             /* Largeur minimale des liens */
+
+            margin: 0.5rem;               /* Marges externes (1 valeurs = 4 directions) */
+            padding: 0.4rem 0;            /* Marges internes (2 valeurs = haut/bas et gauche/droite)*/
+            text-align: center;           /* Centrage du texte */
+            background-color: rgb(230, 105, 9);    /* Arrière-plan */
+            color: #fff;                  /* Couleur du texte */
+            text-decoration: none;        /* Suppression du soulignement */
+            border: 1px solid #fff;       /* Ajout d'une bordure */
+            border-radius: 4px;           /* Arrondis des bordures */
+            transition: all 1s ;          /* Ajout des effets de transition */
+        }
+        h2 {
+            font-family: Arial;
+            color: rgb(13, 32, 72);
+            text-align: left;
+        }
+    </STYLE>
+</head>
+<title>The Movie Cinema</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Auto Complete -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
+<!-- External CSS -->
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+<script type="text/javascript">
+    var films = {{suggestions|tojson}};
+    $(document).ready(function(){
+        $("#myModal").modal('show');
+    });
+</script>
+<style>
+    body
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        margin: 0;
+        background-color: #000;
+    }
+    h1 {
+        font-family: Arial;
+        color: red;
+        text-align: center;
+    }
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 100%);
+        overflow: hidden;
+        scroll-behavior: smooth;
+    }
+    .wrapper section {
+        width: 100%;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+        margin: 20px 0;
+    }
+    .wrapper section .item {
+        padding: 0 2px;
+        transition: 250ms all;
+    }
+    .wrapper section .item:hover {
+        margin: 0 40px;
+        transform: scale(1.2);
+    }
+    .wrapper section a {
+        position: absolute;
+        color: #fff;
+        text-decoration: none;
+        font-size: 6em;
+        background: black;
+        width: 80px;
+        padding: 20px;
+        text-align: center;
+        z-index: 1;
+    }
+    .wrapper section a:nth-of-type(1) {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, black 100%);
+    }
+    .wrapper section a:nth-of-type(2) {
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, black 100%);
+    }
+    @media only screen and (max-width: 600px) {
+        a.arrow__btn {
+            display: none;
+        }
+    }
+    {
+        margin:auto;
+        width:1024px;
+        padding:10px;
+        background-color:black;
+        font-size:14px;
+        font-family:Verdana;
+    }
+    h1
+    {
+        float :center;
+        margin : 0 0 10px 35px; /* haut, droite, bas, gauche (respectivement) */
+        color : white;
+        font : 150% georgia, palatino, serif;
+        font-style : italic;
+        font-size: 35px; /* Titres de 22 pixels */
+    }
+    h3
+    {
+        float :center;
+        margin : 0 0 10px 35px; /* haut, droite, bas, gauche (respectivement) */
+        color : white;
+        font : 150% georgia, palatino, serif;
+        font-style : italic;
+        font-size: 35px; /* Titres de 22 pixels */
+    }
+    $duration: 250ms;
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        background-color: white;
+    }
+
+    h2 {
+        font-family: Arial;
+        color: rgb(7, 7, 89);
+        text-align: left;
+    }
+    h2 {
+        font-family: Arial;
+        color: rgb(244, 59, 12);
+        text-align: left;
+        font-style: ;
+    }
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(3,100%);
+        overflow:hidden;
+        scroll-behavior: smooth;
+
+    section {
+        width: 100%;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+        margin: 20px 0;
+
+    .item {
+        padding: 0 2px;
+        transition: $duration all;
+
+    &:hover {
+         margin: 0 40px;
+         transform: scale(1.2);
+     }
+
+    }
+
+    a {
+        position: absolute;
+        color: #fff;
+        text-decoration: none;
+        font-size: 6em;
+        background: rgb(229, 122, 8);
+        width: 80px;
+        padding: 20px;
+        text-align: center;
+        z-index: 1;
+    }
+    .menu {
+        display: flex;              /* Transformation en flexbox */
+        padding:0;                  /* Suppression des marges internes */
+        background-color: rgb(245, 88, 20);     /* Ajout de la couleur d'arrière-plan */
+        justify-content: left     /* Alignements des liens dans le menu */
+    }
+    .menu a:hover {
+        background-color: white;
+        color: whitesmoke;
+        border-color: whitesmoke;
+    }
+    .menu a {
+        display:block;                /* Transformation en block */
+        min-width: 120px;             /* Largeur minimale des liens */
+
+        margin: 0.5rem;               /* Marges externes (1 valeurs = 4 directions) */
+        padding: 0.4rem 0;            /* Marges internes (2 valeurs = haut/bas et gauche/droite)*/
+        text-align: center;           /* Centrage du texte */
+        background-color: rgb(241, 108, 13);    /* Arrière-plan */
+        color: #fff;                  /* Couleur du texte */
+        text-decoration: none;        /* Suppression du soulignement */
+        border: 1px solid #fff;       /* Ajout d'une bordure */
+        border-radius: 4px;           /* Arrondis des bordures */
+        transition: all 1s ;          /* Ajout des effets de transition */
+    }
+    &:nth-of-type(1) {
+         top:0; bottom:0; left:0;
+         background: linear-gradient(-90deg, rgba(230, 103, 6, 0) 0%, rgb(244, 76, 4) 100%);
+     }
+    &:nth-of-type(2) {
+         top:0; bottom:0; right: 0;
+         background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgb(244, 132, 4) 100%);
+     }
+
+    }
+    }
+    }
+    @media only screen and (max-width: 600px) {
+        a.arrow__btn {
+            display:none;
+        }
+    }
+</style>
+</head>
+<body id="content" style="font-family: 'Noto Sans JP', sans-serif;">
+<div class="body-content">
+    <div class="" style="">
+        <path d=""></path>   
+        </svg>
+        </a>
+        <img src="C:\Users\pmboulnois\Downloads\systemes_recomendation-main\projet_banque\images\Apside.webp"WIDTH=350 HEIGHT=100 ALT="Annihilation">
+            <li>
+                <a href="metier_data.html">metier data</a>
+            </li>
+            <li>
+                <a href="Mission.html">Mission_type</a>
+            </li>
+            <li>
+                <a href="C:\Users\pmboulnois\Downloads\systemes_recomendation-main\projet_banque\dataviz_generale.html">datavisualisation</a>
+            </li>
+        </li>
+        <li>
+            <a href="Presentation_big_data.html">Presentation big_data</a>
+        </div>
+        <li>
+            <a href="https://apside.com/">Contact</a>
+        </div>
+        <li>
+            <a href="index.html">inscription</a>
+        </li>
+    </div>
+    <div id="loader" class="text-center">
+    </div>
+    <h2>"Il faut des décideurs éclairé et non éblouis par l'informatique "Aurelie Jean</h2>
+    <div class="fail">
+        <img src="C:\Users\pmboulnois\Downloads\systemes_recomendation-main\projet_banque\images\Apside.webp"WIDTH=180 HEIGHT=150 ALT="Annihilation">
+        <a href="data_analyst.html"> Acceuil)</a>
+        <img src="C:\Users\pmboulnois\Downloads\systemes_recomendation-main\projet_banque\images\data_scientist.jpg"WIDTH=200 HEIGHT=150 ALT="Annihilation">
+        <a href="data_scientist2.html"> data_scientist</a>
+        <img src="C:\Users\pmboulnois\Downloads\systemes_recomendation-main\projet_banque\e36d6a5af0_50151960_data-engineer1.jpg"WIDTH=200 HEIGHT=250 ALT="Annihilation">
+        <a href="DATA_ingenieur.html"> data ingenieur</a> 
+    </div>
+</html>

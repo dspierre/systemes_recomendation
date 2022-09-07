@@ -1,0 +1,425 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The old library</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Auto Complete -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
+    <!-- External CSS -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <!--    <script type="text/javascript">-->
+    <!--        var films = {{suggestions|tojson}};-->
+    <!--        $(document).ready(function(){-->
+    <!--            $("#myModal").modal('show');-->
+    <!--        });-->
+    </script>
+    <STYLE>
+        .menu {
+            display: flex;              /* Transformation en flexbox */
+            padding:0;                  /* Suppression des marges internes */
+            background-color: black;     /* Ajout de la couleur d'arrière-plan */
+        }
+        .menu li {
+            list-style-type: none ;       /* Suppression des puces */
+        }
+        .menu a {
+            display:block;                /* Transformation en block */
+            min-width: 120px;             /* Largeur minimale des liens */
+        }
+        .menu a {
+            display:block;                /* Transformation en block */
+            min-width: 120px;             /* Largeur minimale des liens */
+
+            margin: 0.5rem;               /* Marges externes (1 valeurs = 4 directions) */
+            padding: 0.4rem 0;            /* Marges internes (2 valeurs = haut/bas et gauche/droite)*/
+            text-align: center;           /* Centrage du texte */
+            background-color: black;    /* Couleur d'arrière-plan */
+            color: #fff;                  /* Couleur du texte */
+            text-decoration: none;        /* Suppression du soulignement */
+            border: 1px solid #fff;       /* Ajout d'une bordure */
+            border-radius: 4px;           /* Arrondis des bordures */
+        }
+        body {
+            margin: 0;
+            background-color: #000;
+        }
+        .menu {
+            display: flex;              /* Transformation en flexbox */
+            padding:0;                  /* Suppression des marges internes */
+            background-color: black;     /* Ajout de la couleur d'arrière-plan */
+            justify-content: center     /* Alignements des liens dans le menu */
+        }
+        .menu a:hover {
+            background-color: black;
+            color: #ffe843;
+            border-color: #ffe843;
+        }
+        .menu a {
+            display:block;                /* Transformation en block */
+            min-width: 120px;             /* Largeur minimale des liens */
+
+            margin: 0.5rem;               /* Marges externes (1 valeurs = 4 directions) */
+            padding: 0.4rem 0;            /* Marges internes (2 valeurs = haut/bas et gauche/droite)*/
+            text-align: center;           /* Centrage du texte */
+            background-color: black;    /* Arrière-plan */
+            color: #fff;                  /* Couleur du texte */
+            text-decoration: none;        /* Suppression du soulignement */
+            border: 1px solid #fff;       /* Ajout d'une bordure */
+            border-radius: 4px;           /* Arrondis des bordures */
+            transition: all 1s ;          /* Ajout des effets de transition */
+        }
+        h2 {
+            font-family: Arial;
+            color: red;
+            text-align: left;
+        }
+    </STYLE>
+</head>
+<title>The Movie Cinema</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Auto Complete -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
+<!-- External CSS -->
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+<script type="text/javascript">
+    var films = {{suggestions|tojson}};
+    $(document).ready(function(){
+        $("#myModal").modal('show');
+    });
+</script>
+<style>
+    body
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        margin: 0;
+        background-color: #000;
+    }
+    h1 {
+        font-family: Arial;
+        color: red;
+        text-align: center;
+    }
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 100%);
+        overflow: hidden;
+        scroll-behavior: smooth;
+    }
+    .wrapper section {
+        width: 100%;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+        margin: 20px 0;
+    }
+    .wrapper section .item {
+        padding: 0 2px;
+        transition: 250ms all;
+    }
+    .wrapper section .item:hover {
+        margin: 0 40px;
+        transform: scale(1.2);
+    }
+    .wrapper section a {
+        position: absolute;
+        color: #fff;
+        text-decoration: none;
+        font-size: 6em;
+        background: black;
+        width: 80px;
+        padding: 20px;
+        text-align: center;
+        z-index: 1;
+    }
+    .wrapper section a:nth-of-type(1) {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, black 100%);
+    }
+    .wrapper section a:nth-of-type(2) {
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, black 100%);
+    }
+    @media only screen and (max-width: 600px) {
+        a.arrow__btn {
+            display: none;
+        }
+    }
+    {
+        margin:auto;
+        width:1024px;
+        padding:10px;
+        background-color:black;
+        font-size:14px;
+        font-family:Verdana;
+    }
+    h1
+    {
+        float :center;
+        margin : 0 0 10px 35px; /* haut, droite, bas, gauche (respectivement) */
+        color : white;
+        font : 150% georgia, palatino, serif;
+        font-style : italic;
+        font-size: 35px; /* Titres de 22 pixels */
+    }
+    h3
+    {
+        float :center;
+        margin : 0 0 10px 35px; /* haut, droite, bas, gauche (respectivement) */
+        color : white;
+        font : 150% georgia, palatino, serif;
+        font-style : italic;
+        font-size: 35px; /* Titres de 22 pixels */
+    }
+    $duration: 250ms;
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        background-color: #000;
+    }
+
+    h2 {
+        font-family: Arial;
+        color: red;
+        text-align: left;
+    }
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(3,100%);
+        overflow:hidden;
+        scroll-behavior: smooth;
+
+    section {
+        width: 100%;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+        margin: 20px 0;
+
+    .item {
+        padding: 0 2px;
+        transition: $duration all;
+
+    &:hover {
+         margin: 0 40px;
+         transform: scale(1.2);
+     }
+
+    }
+
+    a {
+        position: absolute;
+        color: #fff;
+        text-decoration: none;
+        font-size: 6em;
+        background: rgb(0, 0, 0);
+        width: 80px;
+        padding: 20px;
+        text-align: center;
+        z-index: 1;
+    }
+    .menu {
+        display: flex;              /* Transformation en flexbox */
+        padding:0;                  /* Suppression des marges internes */
+        background-color: black;     /* Ajout de la couleur d'arrière-plan */
+        justify-content: left     /* Alignements des liens dans le menu */
+    }
+    .menu a:hover {
+        background-color: white;
+        color: whitesmoke;
+        border-color: whitesmoke;
+    }
+    .menu a {
+        display:block;                /* Transformation en block */
+        min-width: 120px;             /* Largeur minimale des liens */
+
+        margin: 0.5rem;               /* Marges externes (1 valeurs = 4 directions) */
+        padding: 0.4rem 0;            /* Marges internes (2 valeurs = haut/bas et gauche/droite)*/
+        text-align: center;           /* Centrage du texte */
+        background-color: black;    /* Arrière-plan */
+        color: #fff;                  /* Couleur du texte */
+        text-decoration: none;        /* Suppression du soulignement */
+        border: 1px solid #fff;       /* Ajout d'une bordure */
+        border-radius: 4px;           /* Arrondis des bordures */
+        transition: all 1s ;          /* Ajout des effets de transition */
+    }
+    &:nth-of-type(1) {
+         top:0; bottom:0; left:0;
+         background: linear-gradient(-90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+     }
+    &:nth-of-type(2) {
+         top:0; bottom:0; right: 0;
+         background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+     }
+
+    }
+    }
+    }
+    @media only screen and (max-width: 600px) {
+        a.arrow__btn {
+            display:none;
+        }
+    }
+</style>
+</head>
+<body id="content" style="font-family: 'Noto Sans JP', sans-serif;">
+<div class="body-content">
+    <div class="ml-container" style="display: block;">
+        <svg data-toggle="tooltip"
+             data-placement="left" width="80" height="80" viewBox="0 0 250 250"
+             style="fill:#2f1fb8; color:#fff; position: fixed;z-index:100; top: 0; border: 0; right: 0;" aria-hidden="true">
+            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+            <path
+                    d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+                    fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+            <path
+                    d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+                    fill="currentColor" class="octo-body"></path>
+        </svg>
+        </a>
+        <H2>Datascience</H2>
+        <ul class="menu">
+            <li>
+                <a href="Index.html">imscription</a>
+            </li>
+            <li>
+                <a href="métier.html">film</a>
+            </li>
+            <li>
+                <a href="dataviz.html">musique</a>
+            </li>
+            <li>
+                <a href="entreprise_histoire.html">Nouveauté</a>
+            </li>
+            <li>
+                <a href="metier_type.html">datavisualisation</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="loader" class="text-center">
+</div>
+<div class="fail">
+</div>
+<h2></h2>
+<center><h3 class="app-title">Game night</h3></center>
+<h2 id="name" class="text-uppercase"></h2>
+<br>
+<img src="image/game night.jpg"WIDTH=280 HEIGHT=250 ALT="Annihilation">
+<br>
+<H2>Histoire </H2>
+<h5>Naissance du Crédit agricole  1894 - 1900</h5>
+<P>Jules Méline - à l'origine de la création de la première caisse locale</p>
+<P>Jules Méline est à l'origine de la création des premières caisses locales.</p>
+<p>L'histoire du Crédit agricole remonte à la fin du xixe siècle, à une loi de 1884 permettant la </p>  
+<P>libre association professionnelle, qui autorise entre autres la formation de syndicats agricoles,</P> 
+<br></br>
+<P>et la création de banques locales mutualistes.</P>
+ <h5>Développement du maillage territorial 1900 - 1945</h5>  
+  <p>Dès le début du siècle, les caisses locales et régionales se multiplient.</p>
+ <p>Chaque département est ainsi pourvu d'au moins une caisse à la veille de la Première Guerre mondiale. </p>
+<P>Cependant, l'État continue d'assurer les trois quarts des ressources et le prêt à court terme reste</P>
+<p>majoritaire, et ce, malgré la possibilité de pratiquer des prêts à long terme comme le permettent </p>
+<br></br>
+<P>les lois du 29 décembre 1906 et du 19 mars 1910.</P>
+ <h5> L'après-guerre et la création de la Fédération Nationale du Crédit agricole 1945 - 1966</h5>
+<p>Pour financer l’effort de reconstruction de l’après-guerre et pour renforcer la mécanisation </p>
+<p>de l’agriculture, la Caisse nationale de Crédit agricole intensifie la collecte pour compléter les ressources venues de l’État.</p>
+ <P>Les caisses régionales ouvrent de nombreux bureaux : de 1000 en 1947, le total passe à 2 259 en 1967.</P>
+ <br></br>
+ <h5> Naissance de la banque universelle 1966 - 1988</h5>
+ <p>La Caisse nationale de Crédit agricole obtient l'autonomie financière</p>
+ <p> de l’État en 1966, dans le but de dynamiser l'épargne et de débudgétiser ses interventions. </p>
+ <p>La collecte ne passe ainsi plus par le Trésor public. C'est donc la Caisse nationale qui assure</p>
+ <P>désormais la péréquation entre caisses régionales déficitaires ou excédentaires.</P> 
+m
+ <h5>Les mutations institutionnelles en 1988-2001</h5>
+ <p>Le 18 janvier 1988, la loi de mutualisation de la Caisse nationale de Crédit agricole entre en vigueur.</P
+<p>Transformé en une société anonyme, l'organe central du groupe devient propriété des caisses régionales</p> 
+<P>à 90 % et du personnel à 10 %. La société est donc désormais totalement indépendante de l'État,</P> 
+ <P>ce qui met fin aux prélèvements autoritaires de ses excédents. </P> 
+<p>En 1990, le Crédit agricole perd le monopole des prêts bonifiés à l’agriculture.</p> 
+ <P>Un an plus tard, en 1991, son processus de « normalisation » se termine, puisque</P> 
+ <p>le financement des grandes entreprises lui est ouvert19.</p>
+ <br></br>
+ <h5>L'accélération de la diversification des métiers en 2001-2008</h5>
+<p>Le xxie siècle marque la multiplication des métiers au sein du groupe.</p>
+ <p>Finaref est racheté en 2003. La même année, Crédit agricole réussit son offre amicale</p>
+ <p>d'échange sur le Crédit lyonnais, à l'issue d'une bataille boursière déclenchée par </p> 
+ <P>la cession aux enchères en décembre 2002 de la part de l’État dans cette banque. </P> 
+ <P>Ce rapprochement, réalisé entre 2003 et 2004 donne lieu au regroupement des différentes </P> 
+  <p>activités des deux établissements. Calyon voit ainsi le jour en 2004, filiale issue des </p>
+  <P>activités de banque de financement et d'investissement du Crédit Lyonnais et de Crédit agricole Indosuez. </P>
+  <br></br>
+  <h5>Crédit agricole et la crise de 2008-2013</h5>
+  <p>Ancien siège du Crédit agricole à ParisTouché par le blocage du marché des crédits interbancaires, Crédit agricole est contraint, </p>
+  <P>en janvier 2008, de céder sa participation historique dans Suez pour 1,3 milliard d'euros</P>
+  <p>puis de lancer, en mai 2008, une augmentation de capital de 5,9 milliards d'euros suivie par</p> 
+  <p>l'ensemble des caisses régionales pour satisfaire aux exigences règlementaires Bâle </p>  
+   <p>II et de procéder à un programme de cession d'actifs non-stratégiques à hauteur de cinq milliards d'euros </p> 
+   <br></br>
+   <h5>retour aux fondements du groupe depuis 2014 </h5>
+    <P>En 2015, une nouvelle gouvernance prend place au sein de Crédit agricole SA.</P
+    <P>En mai, Philippe Brassac est nommé directeur général,</P>
+    <P>succédant ainsi à Jean-Paul Chifflet, tandis qu'en novembre, Dominique Lefebvre est nommé président.</P>
+</center>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+<div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+        <div class="modal-header" style="background-color: #e50914;color: white;">
+            <h5 class="modal-title" id="exampleModalLabel3">Hey there!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="color: white">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer" style="text-align: center;">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Let's go!</button>
+        </div>
+    </div>
+</div>
+</div>
+<div class="item">
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/js/autoComplete.min.js"></script>
+<script type="text/javascript" src="{{url_for('static', filename='autocomplete.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='recommend.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>  
+</html>
